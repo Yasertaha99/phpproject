@@ -44,7 +44,7 @@ $products = $allProd->getAvailables();
                 echo "<tr>
                 <td>{$product['name']}</td> 
                 <td>{$product['price']}</td> 
-                <td> <img src='{$product['prod_image']}' width='100' height='100'></td>
+                <td> <img src='{$product['image']}' width='100' height='100'></td>
                 <td>{$product['available']}</td> 
                 
                 <td><a href='editProduct.php?id={$product['id']}' class='btn btn-info'> Edit </a> 

@@ -4,11 +4,13 @@ ini_set('display_errors', '1');
 include_once('../layouts/app.php');
 require("../../controller/product.php");
 $allProd = new ProductController();
-$methods = get_class_methods('ProductController');
+// $methods = get_class_methods('ProductController');
 // echo '<pre>';
 // print_r($methods);
 // echo '</pre>';
-$products = $allProd->getUnAvailables();
+$products = $allProd->getAvailables();
+// print_r($products);
+
 ?>
 
 <!DOCTYPE html>
@@ -36,14 +38,13 @@ $products = $allProd->getUnAvailables();
             <th>available</th>
             <th>Action</th>
         </tr>
-        <?php
+            <?php
             foreach($products as $product)
             {
-                echo $product['image'];
                 echo "<tr>
                 <td>{$product['name']}</td> 
                 <td>{$product['price']}</td> 
-                <td> <img src='{$product['image']}' width='100' height='100'></td>
+                <td> <img src='{$product['prod_image']}' width='100' height='100'></td>
                 <td>{$product['available']}</td> 
                 
                 <td><a href='editProduct.php?id={$product['id']}' class='btn btn-info'> Edit </a> 

@@ -36,10 +36,10 @@ $products = $allProd->getUnAvailables();
             <th>available</th>
             <th>Action</th>
         </tr>
-        <?php
+         
+            <?php
             foreach($products as $product)
             {
-                echo $product['image'];
                 echo "<tr>
                 <td>{$product['name']}</td> 
                 <td>{$product['price']}</td> 

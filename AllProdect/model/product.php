@@ -19,7 +19,7 @@ class Product
     public function insert($name, $price, $prod_image, $availability, $category) {
         // var_dump($this->category); 
         $db = dbconnect();
-        $sql = 'INSERT INTO product (name, price, image, availability, categoryid) 
+        $sql = 'INSERT INTO product (name, price, image, available, category_id) 
                 VALUES ( ?, ?, ?, ?, ?)';
         $db->DML($sql,
          [$name, $price, $prod_image,$availability, $category]);   
@@ -36,7 +36,7 @@ class Product
     function update($id, $name, $price, $prod_image,$availability, $category)
     {
         $db = dbconnect();
-        $sql = 'update product set name=?, price=?,image=?, availability=?, categoryid=? where id = ?';
+        $sql = 'update product set name=?, price=?,image=?, available=?, category_id=? where id = ?';
         $db->DML($sql,
         [$name, $price, $prod_image,$availability, $category['id'], $id]);
     }
@@ -62,18 +62,19 @@ class Product
         $result = $db->selectWithCondition('product', 'id = '. $id);
         return $result;
     }
-
+	
+    
     function getAvailable()
     {
         $db = dbconnect();
-        $result = $db->selectWithCondition('product', "availability = 'avaliable'");
+        $result = $db->selectWithCondition('product', "available = 'available'");
         return $result;
     }
 
     function getUnavailable()
     {
         $db = dbconnect();
-        $result = $db->selectWithCondition('product', 'availability = "unavaliable"');
+        $result = $db->selectWithCondition('product', 'available = "unavailable"');
         return $result;
     }
 

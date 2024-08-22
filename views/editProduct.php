@@ -19,7 +19,7 @@ if(!empty($_POST))
     header("Location:allProduct.php");
 }
 $product = $allProd->getProduct($id);
-$category = $allProd->getCategory($product[0]['category_id']);
+$category = $allProd->getCategory($product[0]['cate_id']);
 $allCategories = $allProd->getAllCategories();
 // foreach($allCategories as $cate)
 // {
@@ -82,8 +82,8 @@ $allCategories = $allProd->getAllCategories();
                 <div class="mb-3">
                     <label for="Select" class="form-label"> Category</label>
                     <select id="Select" class="form-select" name="available">
-                        <option>available</option>
-                        <option>unavailable</option>
+                        <option>avaliable</option>
+                        <option>unavaliable</option>
                     </select>
                 </div>
 
@@ -92,7 +92,7 @@ $allCategories = $allProd->getAllCategories();
 
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Product Picture</label>
-                    <input type="file" class="form-control" name="image" aria-describedby="emailHelp"  >
+                    <input type="file" class="form-control" name="image" aria-describedby="emailHelp">
                 </div>
                 <input type="hidden" name="prod_id" value="<?php echo $product[0]['id'];?>">
 

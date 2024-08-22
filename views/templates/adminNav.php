@@ -25,8 +25,7 @@ if (!isset($_SESSION['logged_in'])) {
     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
       <div class="navbar-nav px-3 px-lg-5">
         <a href="./adminHome.php" class="nav-item nav-link mx-2 mx-lg-3 small">Home</a>
-        <a href="./products.php" class="nav-item nav-link mx-2 mx-lg-3 small">Products</a> 
-        <a href="http://localhost/12/AllProdect/view/products/allProduct.php" class="nav-item nav-link mx-2 mx-lg-3 small">Prods</a>
+        <a href="http://localhost/12/AllProdect/view/products/allProduct.php" class="nav-item nav-link mx-2 mx-lg-3 small">Products</a>
         <a href="./add_user.php" class="nav-item nav-link mx-2 mx-lg-3 small">Users</a>
         <a href="./manual_orders.php" class="nav-item nav-link mx-2 mx-lg-3 small">Manual Orders</a>
         <a href="./checks.php" class="nav-item nav-link mx-2 mx-lg-3 small">Checks</a>

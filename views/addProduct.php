@@ -9,16 +9,15 @@ $allProd = new ProductController();
 $allCategories =  Category::getAllAsObject();
 if(!empty($_POST))
 { 
-    $one = Category::getOneAsObject($_POST['cat_name']);
+    $one = Category::getOneAsObject($_POST['name']);
 // echo '=-----------------one--<br>';
-// var_dump($one);
+// var_dump($one[0]);
 // echo '-------------'. $one[0]['id'];
 // echo $_FILES['prod_image']['name'];
     // $prod1= new Product("Tea33", 10, "tea", "avaliable", (object) $allCategories[0]);
     // $prod1= new Product($_POST['cate_name'], $_POST['price'], "image", "avaliable", $one[0]);
-    $allProd->insertProd($_POST['name'], $_POST['price'], $_FILES['image'], "avaliable" ,$one[0]['id']);
+    $allProd->insertProd($_POST['name'], $_POST['price'], $_FILES['image'], "avaliable",$_POST['id']);
 }
-
 print_r($_POST);
 ?>
 <!DOCTYPE html>
@@ -44,11 +43,11 @@ print_r($_POST);
         <form action="#" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend> Add New Product</legend>
-               
+                <input type="hidden" name="id" value="<?php var_dump($product['id']+1) ;?>">
                 <div class="mb-3">
                     <label for="TextInput" class="form-label"> Product</label>
                     <input type="text" id="TextInput" class="form-control" placeholder="Put your product name"
-                        name="name">
+                        name="prod_name">
                 </div>
                 <div class="mb-3">
                     <label for="TextInput" class="form-label"> Price</label>
@@ -57,7 +56,7 @@ print_r($_POST);
 
                 <div class="mb-3">
                     <label for="Select" class="form-label"> Category</label>
-                    <select id="Select" class="form-select" name="cat_name">
+                    <select id="Select" class="form-select" name="name">
                         <option selected>Select Category</option>
                         <?php
                         for($i=0;$i<count($allCategories);$i++)

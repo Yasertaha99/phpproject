@@ -67,10 +67,10 @@ class Category
     }
 
 
-    public static function getOneAsObject($id)
+    public static function getOneAsObject($name)
     {
         $db = dbconnect();
-        $result = $db->selectWithCondition("category", "id = ?" ,[$id]);
+        $result = $db->selectWithCondition("category", "name = ?" ,[$name]);
         //var_dump($result);
         
         foreach($result as $row)
