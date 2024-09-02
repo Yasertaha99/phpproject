@@ -42,7 +42,8 @@ unset($_SESSION['errors']);
       <?php endif; ?>
       <div class="row m-auto text-center">
         <button type="submit" name="login" class="btn btn-primary mb-4 w-50 m-auto">Log In</button>
-        <a href="forgetPassword.php" class="link-outline-primary mb-4">Forgot Password?</a>
+        <a href="send_reset_email.php" class="link-outline-primary mb-4">Forgot Password?</a>
+        
       </div>
     </form>
   </div>
